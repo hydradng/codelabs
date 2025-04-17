@@ -19,11 +19,12 @@ import { RouterModule } from "@angular/router";
       </a>
       <section class="content">
         <router-outlet></router-outlet>
+        <!-- <app-home></app-home> -->
       </section>
     </main>
   `,
   styleUrls: ["./app.component.css"],
-  imports: [HomeComponent, RouterModule],
+  imports: [RouterModule],
 })
 export class AppComponent {
   title = "homes";
