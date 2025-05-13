@@ -8,7 +8,7 @@ import { RouterLink, RouterOutlet } from "@angular/router";
   imports: [HomeComponent, RouterLink, RouterOutlet],
   template: `
     <main>
-      <a [routerLink]="['']"> 
+      <a [routerLink]="['']" (click)="OnLogoClick()"> 
         <header class="brand-name">
           <img
             class="brand-logo"
@@ -28,4 +28,10 @@ import { RouterLink, RouterOutlet } from "@angular/router";
 })
 export class AppComponent {
   title = "homes";
+
+  // Another test is to use params in url and populate that param from an input box
+  // Look into ngOnInit and subscribe()
+  OnLogoClick(){
+    console.log ('Logo clicked')
+  }
 }

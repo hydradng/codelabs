@@ -58,6 +58,7 @@ export class DetailsComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
   housingService = inject(HousingService);
   housingLocation: HousingLocation | undefined;
+
   applyForm = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
@@ -66,9 +67,15 @@ export class DetailsComponent {
 
   
   constructor() {
-    const housingLocationId = Number(this.route.snapshot.params['id']);
-    this.housingLocation = this.housingService.getHousingLocationById(housingLocationId)
-  }
+    const housingLocationId = parseInt(this.route.snapshot.params['id'], 10);
+    this.housingService.getHousingLocationById(housingLocationId).then((housingLocation) => {
+      this.housingLocation = housingLocation;
+    });
+    //  OLD WAY BEFORE TAKING DATA FROM JSON
+    // const housingLocationId = Number(this.route.snapshot.params['id']);
+    // this.housingLocation = this.housingService.getHousingLocationById(housingLocationId)
+  }    
+
 
   submitApplication() {
     this.housingService.submitApplication(
@@ -77,7 +84,5 @@ export class DetailsComponent {
       this.applyForm.value.email ?? '',
     );
   }
-
-
-
+  
 }
