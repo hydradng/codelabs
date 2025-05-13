@@ -12,6 +12,7 @@
     padding: 10px;
     border-radius: 8px;
     margin-right: 4px;
+    margin-bottom: 4px;
     display: inline-block;
     width: 30%;
   }
@@ -22,7 +23,19 @@
     background: var(--primary-color);
     color: white;
     border-radius: 8px;
+    margin-right: 10px;
+    transition: all 0.3s ease; /* Smooth animation on hover */
   }
+
+  button:hover {
+    background: white;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    cursor: pointer;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.15); /* Optional shadow */
+  }
+
+
   
   @media (min-width: 500px) and (max-width: 768px) {
     .results {
